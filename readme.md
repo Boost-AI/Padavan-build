@@ -17,5 +17,5 @@
 ~~每周日晚上11点(北京时间)自动Action构建~~<br>
 Fork此仓库到自己账户下，在自己的仓库下：<br>
 点击仓库的Star手动触发Action构建固件<br>
-需要再次构建时，Unstar然后重新Star即可
+需要再次构建时，Unstar然后重新Star即可<br>
 生成的固件到Release里面下载
