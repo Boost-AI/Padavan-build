@@ -25,8 +25,7 @@ jobs:
         pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
     - name: Clone source code
       run: |
-        # https://github.com/hanwckf/rt-n56u.git
-        git clone --depth 1 https://github.com/xumng123/rt-n56u.git /opt/rt-n56u
+        git clone --depth 1 https://github.com/hanwckf/rt-n56u.git /opt/rt-n56u
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
@@ -39,6 +38,7 @@ jobs:
         echo "configs/templates/$TNAME.config not found"
         exit 1
         fi
+        curl https://raw.githubusercontent.com/iboosting/Padavan-build/master/trunk/mod.tar.gz | tar -xz --overwrite      
         cp -f configs/templates/$TNAME.config .config
 
         sed -i '/CONFIG_LINUXDIR=linux-.*/a CONFIG_TOOLCHAIN_DIR=/opt/rt-n56u/toolchain-mipsel' .config
