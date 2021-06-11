@@ -25,7 +25,7 @@ jobs:
         pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
     - name: Clone source code
       run: |
-        git clone --depth 1 https://github.com/xumng123/rt-n56u.git /opt/rt-n56u
+        git clone --depth 1 https://github.com/hanwckf/rt-n56u.git /opt/rt-n56u
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
@@ -38,7 +38,7 @@ jobs:
         echo "configs/templates/$TNAME.config not found"
         exit 1
         fi
-        #curl https://raw.githubusercontent.com/iboosting/Padavan-build/master/trunk/mod.tar.gz | tar -xz --overwrite      
+        curl https://raw.githubusercontent.com/iboosting/Padavan-build/master/trunk/mod.tar.gz | tar -xz --overwrite      
         cp -f configs/templates/$TNAME.config .config
 
         sed -i '/CONFIG_LINUXDIR=linux-.*/a CONFIG_TOOLCHAIN_DIR=/opt/rt-n56u/toolchain-mipsel' .config
@@ -67,8 +67,6 @@ jobs:
         sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_DROPBEAR_FAST_CODE.*=.*/CONFIG_FIRMWARE_INCLUDE_DROPBEAR_FAST_CODE=y/g' .config
         sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_OPENSSH.*=.*/CONFIG_FIRMWARE_INCLUDE_OPENSSH=n/g' .config
         sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_OPENVPN.*=.*/CONFIG_FIRMWARE_INCLUDE_OPENVPN=n/g' .config
-        sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_OPENSSL_EC.*=.*/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EC=n/g' .config
-        sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE.*=.*/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/g' .config
         sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_XUPNPD.*=.*/CONFIG_FIRMWARE_INCLUDE_XUPNPD=n/g' .config
         sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_FFMPEG_NEW.*=.*/CONFIG_FIRMWARE_INCLUDE_FFMPEG_NEW=n/g' .config
         sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_TRANSMISSION.*=.*/CONFIG_FIRMWARE_INCLUDE_TRANSMISSION=n/g' .config
@@ -95,7 +93,7 @@ jobs:
         sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_SOCAT.*=.*/CONFIG_FIRMWARE_INCLUDE_SOCAT=n/g' .config
         sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_SRELAY.*=.*/CONFIG_FIRMWARE_INCLUDE_SRELAY=n/g' .config
         sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_WIREGUARD.*=.*/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=n/g' .config
-        sed -i '/CONFIG_FIRMWARE_INCLUDE_NAPT66/a CONFIG_FIRMWARE_INCLUDE_SMARTDNS=y' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_NAPT66/a CONFIG_FIRMWARE_INCLUDE_SMARTDNS=n' .config
         sed -i '/CCONFIG_FIRMWARE_INCLUDE_SMARTDNS/a CONFIG_FIRMWARE_INCLUDE_ADBYBY=y' .config
         sed -i '/CONFIG_FIRMWARE_INCLUDE_ADBYBY/a CONFIG_FIRMWARE_INCLUDE_KOOLPROXY=n' .config
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_SERVER/i CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y' .config
