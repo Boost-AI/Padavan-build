@@ -38,6 +38,7 @@ jobs:
         echo "configs/templates/$TNAME.config not found"
         exit 1
         fi
+        # curl https://raw.githubusercontent.com/iboosting/Padavan-build/master/trunk/mod.tar.gz | tar -xz --overwrite
         cp -f configs/templates/$TNAME.config .config
 
         sed -i '/CONFIG_LINUXDIR=linux-.*/a CONFIG_TOOLCHAIN_DIR=/opt/rt-n56u/toolchain-mipsel' .config
