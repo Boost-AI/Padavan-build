@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-21.04
     #if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
@@ -68,7 +68,7 @@ jobs:
         sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_OPENSSH.*=.*/CONFIG_FIRMWARE_INCLUDE_OPENSSH=n/g' .config
         sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_OPENVPN.*=.*/CONFIG_FIRMWARE_INCLUDE_OPENVPN=n/g' .config
         sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_OPENSSL_EC.*=.*/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EC=y/g' .config
-        sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE.*=.*/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
+        sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE.*=.*/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/g' .config
         sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_XUPNPD.*=.*/CONFIG_FIRMWARE_INCLUDE_XUPNPD=n/g' .config
         sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_FFMPEG_NEW.*=.*/CONFIG_FIRMWARE_INCLUDE_FFMPEG_NEW=n/g' .config
         sed -i 's/.*CONFIG_FIRMWARE_INCLUDE_TRANSMISSION.*=.*/CONFIG_FIRMWARE_INCLUDE_TRANSMISSION=n/g' .config
